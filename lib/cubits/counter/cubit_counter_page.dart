@@ -32,7 +32,7 @@ class CubitCounterPage extends StatelessWidget {
             return Center(
               child: Text(
                 '${state.counter}',
-                style: const TextStyle(fontSize: 50.0),
+                style: const TextStyle(fontSize: 52.0),
               ),
             );
           },

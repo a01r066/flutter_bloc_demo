@@ -1,9 +1,8 @@
-import 'package:bloc_demo/blocs/bloc_counter.dart';
-import 'package:bloc_demo/blocs/bloc_counter_event.dart';
-import 'package:bloc_demo/blocs/bloc_other_page.dart';
+import 'package:bloc_demo/blocs/counter/bloc_counter.dart';
+import 'package:bloc_demo/blocs/counter/bloc_counter_event.dart';
+import 'package:bloc_demo/blocs/counter/bloc_other_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'bloc_counter_state.dart';
 
 class BlocCounterPage extends StatelessWidget {
@@ -33,7 +32,7 @@ class BlocCounterPage extends StatelessWidget {
           return Scaffold(
             body: Center(
               child: Text(
-                '${context.read<BlocCounter>().state.counter}',
+                '${context.watch<BlocCounter>().state.counter}',
                 style: TextStyle(fontSize: 52.0),
               ),
             ),

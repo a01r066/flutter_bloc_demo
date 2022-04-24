@@ -1,5 +1,5 @@
-import 'package:bloc_demo/blocs/bloc_counter_event.dart';
-import 'package:bloc_demo/blocs/bloc_counter_state.dart';
+import 'package:bloc_demo/blocs/counter/bloc_counter_event.dart';
+import 'package:bloc_demo/blocs/counter/bloc_counter_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BlocCounter extends Bloc<BlocCounterEvent, BlocCounterState> {
