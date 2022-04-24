@@ -12,7 +12,7 @@ class CubitCounterPage extends StatelessWidget {
     return SafeArea(
       bottom: true,
       child: Scaffold(
-        body: BlocConsumer<CounterImpl, CubitCounterState>(
+        body: BlocConsumer<CubitCounter, CubitCounterState>(
           listener: (context, state) {
             if (state.counter == 3) {
               showDialog(
@@ -76,7 +76,7 @@ class CubitCounterPage extends StatelessWidget {
               FloatingActionButton(
                 onPressed: () {
                   // BlocProvider.of<CounterImpl>(context).increment();
-                  context.read<CounterImpl>().increment();
+                  context.read<CubitCounter>().increment();
                 },
                 child: const Icon(Icons.add),
                 heroTag: "Increment",
@@ -87,7 +87,7 @@ class CubitCounterPage extends StatelessWidget {
               FloatingActionButton(
                 onPressed: () {
                   // BlocProvider.of<CounterImpl>(context).decrement();
-                  context.read<CounterImpl>().decrement();
+                  context.read<CubitCounter>().decrement();
                 },
                 child: const Icon(Icons.remove),
                 heroTag: "decrement",
