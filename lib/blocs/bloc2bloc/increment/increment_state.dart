@@ -6,7 +6,7 @@ class IncrementState extends Equatable {
   final int increment;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [increment];
 
   @override
   String toString() {

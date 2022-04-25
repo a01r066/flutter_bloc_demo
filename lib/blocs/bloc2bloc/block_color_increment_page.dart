@@ -12,18 +12,48 @@ class BlocColorIncrementPage extends StatelessWidget {
           create: (context) => ColorBloc(),
         ),
         BlocProvider<IncrementBloc>(
-          create: (context) => IncrementBloc(
-            colorBloc: context.read<ColorBloc>(),
-          ),
-        ),
+            create: (context) =>
+                IncrementBloc(colorBloc: context.read<ColorBloc>()))
       ],
       child: MaterialApp(
-        title: 'bloc2bloc',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        title: 'Material App',
+        home: BlocConsumer<ColorBloc, BlocColorState>(
+          listener: (context, state) {
+            state.color;
+          },
+          builder: (context, state) {
+            return Scaffold(
+              backgroundColor: context.watch<ColorBloc>().state.color,
+              appBar: AppBar(
+                title: Text('Color Increment'),
+              ),
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        context.read<ColorBloc>().add(ChangeColorEvent());
+                      },
+                      child: Text("Change Color"),
+                    ),
+                    Text(
+                      '${context.watch<IncrementBloc>().state.increment}',
+                      style: TextStyle(fontSize: 52.0),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        context.read<IncrementBloc>().add(ChangeIncrementEvent());
+                      },
+                      child: Text("Change Increment"),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         ),
-        home: const MyHomePage(),
       ),
     );
     // return BlocProvider(
@@ -52,51 +82,5 @@ class BlocColorIncrementPage extends StatelessWidget {
     //     ),
     //   ),
     // );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.watch<ColorBloc>().state.color,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              child: Text(
-                'Change Color',
-                style: TextStyle(fontSize: 24.0),
-              ),
-              onPressed: () {
-                context.read<ColorBloc>().add(ChangeColorEvent());
-              },
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              '${context.watch<IncrementBloc>().state.increment}',
-              style: TextStyle(
-                fontSize: 52.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              child: Text(
-                'Increment Counter',
-                style: TextStyle(fontSize: 24.0),
-              ),
-              onPressed: () {
-                context.read<IncrementBloc>().add(ChangeIncrementEvent());
-              },
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }
