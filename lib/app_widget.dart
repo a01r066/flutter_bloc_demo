@@ -1,3 +1,4 @@
+import 'package:bloc_demo/blocs/bloc2bloc/block_color_increment_page.dart';
 import 'package:bloc_demo/blocs/counter/bloc_counter.dart';
 import 'package:bloc_demo/blocs/theme/theme_page.dart';
 import 'package:bloc_demo/cubits/cubit2cubit/color_increment_page.dart';
@@ -9,8 +10,11 @@ import 'blocs/counter/bloc_counter_page.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Bloc to Bloc - Color increment
+    return BlocColorIncrementPage();
+
     // Cubit to Cubit - Color increment
-    return ColorIncrementPage();
+    // return ColorIncrementPage();
 
     // Work with cubit theme
     // return CubitThemePage();
