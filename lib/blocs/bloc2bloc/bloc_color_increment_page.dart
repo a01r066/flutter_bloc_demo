@@ -1,7 +1,8 @@
-import 'package:bloc_demo/blocs/bloc2bloc/color/color_bloc.dart';
-import 'package:bloc_demo/blocs/bloc2bloc/increment/increment_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'color/color_bloc.dart';
+import 'increment/increment_bloc.dart';
 
 class BlocColorIncrementPage extends StatelessWidget {
   @override
