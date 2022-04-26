@@ -3,6 +3,7 @@ import 'package:bloc_demo/blocs/bloc2bloc_BlocListener/blcolor_increment_page.da
 import 'package:bloc_demo/blocs/counter/bloc_counter.dart';
 import 'package:bloc_demo/blocs/theme/theme_page.dart';
 import 'package:bloc_demo/cubits/cubit2cubit/color_increment_page.dart';
+import 'package:bloc_demo/cubits/cubit2cubit_bloclistener/cb_color_increment_page.dart';
 import 'package:bloc_demo/cubits/theme/cubit_theme_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,10 +13,13 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Bloc to Bloc BlocListener - Color increment
-    return const BlColorIncrementPage();
+    // return const BlColorIncrementPage();
 
     // Bloc to Bloc - Color increment
     // return BlocColorIncrementPage();
+
+    // Cubit to cubit BlocListener - Color increment
+    return CbColorIncrementPage();
 
     // Cubit to Cubit - Color increment
     // return ColorIncrementPage();
