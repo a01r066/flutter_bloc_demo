@@ -2,6 +2,7 @@ import 'package:bloc_demo/blocs/bloc2bloc/bloc_color_increment_page.dart';
 import 'package:bloc_demo/blocs/bloc2bloc_BlocListener/blcolor_increment_page.dart';
 import 'package:bloc_demo/blocs/bloc_access_context/bac_increment_page.dart';
 import 'package:bloc_demo/blocs/counter/bloc_counter.dart';
+import 'package:bloc_demo/blocs/event_transformer/evt_counter_page.dart';
 import 'package:bloc_demo/blocs/theme/theme_page.dart';
 import 'package:bloc_demo/cubits/cubit2cubit/color_increment_page.dart';
 import 'package:bloc_demo/cubits/cubit2cubit_bloclistener/cb_color_increment_page.dart';
@@ -14,8 +15,11 @@ import 'blocs/counter/bloc_counter_page.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Event transformer
+    return EvtCounterPage();
+
     // Bloc Access Named Route
-    return BanrIncrementPage();
+    // return BanrIncrementPage();
 
     // Bloc Access Anonymous Route
     // return BaarcIncrementPage();

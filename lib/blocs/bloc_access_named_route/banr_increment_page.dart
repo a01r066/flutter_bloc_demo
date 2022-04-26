@@ -21,15 +21,35 @@ class _BanrIncrementPageState extends State<BanrIncrementPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Named Route",
-      routes: {
-        '/': (context) => BlocProvider.value(
-              value: incrementBloc,
-              child: const BanrIncrementWidget(),
-            ),
-        '/counter': (context) => BlocProvider.value(
-              value: incrementBloc,
-              child: const BanrCounterpage(),
-            ),
+      // routes: {
+      //   '/': (context) => BlocProvider.value(
+      //         value: incrementBloc,
+      //         child: const BanrIncrementWidget(),
+      //       ),
+      //   '/counter': (context) => BlocProvider.value(
+      //         value: incrementBloc,
+      //         child: const BanrCounterpage(),
+      //       ),
+      // },
+      onGenerateRoute: (RouteSettings setting){
+        switch(setting.name){
+          case '/':
+            return MaterialPageRoute(builder: (context){
+              return BlocProvider.value(
+                value: incrementBloc,
+                child: const BanrIncrementWidget(),
+              );
+            });
+          case '/counter':
+            return MaterialPageRoute(builder: (context){
+              return BlocProvider.value(
+                value: incrementBloc,
+                child: const BanrCounterpage(),
+              );
+            });
+          default:
+            return null;
+        }
       },
     );
   }

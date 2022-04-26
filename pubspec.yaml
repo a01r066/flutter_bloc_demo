@@ -16,6 +16,7 @@ dependencies:
   equatable: ^2.0.3
   flutter_bloc: ^8.0.1
   rename: ^2.0.1
+  bloc_concurrency: ^0.2.0
 
 dev_dependencies:
   flutter_test:
